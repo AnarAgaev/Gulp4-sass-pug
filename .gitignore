@@ -1,0 +1,8 @@
+# Ignore node modules files
+/node_modules/
+
+# Ignore preproduction directory
+/build/**/*
+
+# Ignore package-lock
+/package-lock.json

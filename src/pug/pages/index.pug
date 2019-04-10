@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        //- meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        //- meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+        meta(name="robots" content="index, follow")
+
+        //- CONNECTING STYLES
+        link(rel="stylesheet" type="text/css" href="/css/reset.css")
+        link(rel="stylesheet" type="text/css" href="/css/main.css")
+        link(rel="shortcut icon" href="img/favicon.ico" type="image/x-icon")
+
+        //- CONNECTING FONTAWESOME
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
+        meta(name="description" content="")
+        meta(name="keywords" content="")
+        title Your Website
+        
+        //[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]
+    body
+        header
+            a.logo(href="#") Logo
+            nav
+                ul
+                    li Your main menu
+
+        h1 Title of the page
+        section
+            article
+                header
+                    h2 Article title
+                    p 
+                        | Posted on
+                        time(datetime="2009-09-04T16:31:24+02:00") September 4th 2009
+                        | by
+                        a(href="#") Writer - 
+                        a(href="#comments") 6 comments
+                p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            article
+                header
+                    h2 Article title
+                    p 
+                        | Posted on
+                        time(datetime="2009-09-04T16:31:24+02:00") September 4th 2009
+                        | by
+                        a(href="#") Writer - 
+                        a(href="#comments") 6 comments
+                p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        aside
+            h2 About section
+            p Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+        footer
+            p Copyright 2009 Your name
+
+        //- CONNECTING JS SCRIPTS
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js")
+        script(async src="/js/main.js")
