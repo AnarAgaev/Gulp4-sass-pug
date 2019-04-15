@@ -6,6 +6,7 @@ const notify                                = require('gulp-notify')
 const sass                                  = require('gulp-sass')
 const autoprefixer                          = require('gulp-autoprefixer')
 const cssbeautify                           = require('gulp-cssbeautify')
+const mmq                                   = require('gulp-merge-media-queries')
 const pug                                   = require('gulp-pug')
 const imagemin                              = require('gulp-imagemin')
 const browserSync                           = require('browser-sync').create()
@@ -30,8 +31,11 @@ function buildcss() {
             browsers: ['last 2 versions'],
             cascade: false
         }))
+        .pipe(mmq({
+            log: true,
+        }))
         .pipe(cssbeautify({
-            indent: '    ',
+            indent: '   ',
             openbrace: 'end-of-line',
             autosemicolon: true
         }))

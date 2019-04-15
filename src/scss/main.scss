@@ -1,6 +1,17 @@
-body {
+header {
     p {
         padding: 10px;
+        @media (min-width: 991px) {
+            background-color: green;
+        }
+    }
+}
+footer {
+    p {
+        padding: 20px;
+        @media (min-width: 991px) {
+            background-color: blue;
+        }
     }
 }
 div {
