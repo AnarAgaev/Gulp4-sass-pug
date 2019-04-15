@@ -1,9 +1,19 @@
-//- INCLUDE STYLE CONPONENTS
+// INCLUDE STYLE CONPONENTS
 @import 'components/reset';
+
+//MIXINS
+@mixin animate ($duration) {
+    transition: all $duration linear;
+}
 
 header {
     p {
         padding: 10px;
+        cursor: pointer;
+        @include animate(.3s);
+        &:hover {
+            background-color: gold;
+        }
         @media (min-width: 991px) {
             background-color: green;
         }
