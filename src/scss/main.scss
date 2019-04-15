@@ -16,6 +16,14 @@ header {
         }
     }
 }
+.main-content {
+    float: left;
+    width: 600px / 960px * 100%;
+}
+.left-sidebar {
+    float: right;
+    width: 300px / 960px * 100%;
+}
 footer {
     p {
         padding: 20px;

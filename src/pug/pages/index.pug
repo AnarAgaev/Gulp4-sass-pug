@@ -27,33 +27,34 @@ html(lang="en")
                     li Your main menu
 
         h1 Title of the page
-        section
-            article
-                header
-                    h2 Article title
-                    p 
-                        | Posted on
-                        time(datetime="2009-09-04T16:31:24+02:00") September 4th 2009
-                        | by
-                        a(href="#") Writer - 
-                        a(href="#comments") 6 comments
-                p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            article
-                header
-                    h2 Article title
-                    p 
-                        | Posted on
-                        time(datetime="2009-09-04T16:31:24+02:00") September 4th 2009
-                        | by
-                        a(href="#") Writer - 
-                        a(href="#comments") 6 comments
-                p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-        aside
-            h2 About section
-            p Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
-            .button-container
-                button.button-default Some button text
-                button.button-empty Some button text
+        .clearfix
+            section.main-content
+                article
+                    header
+                        h2 Article title
+                        p 
+                            | Posted on
+                            time(datetime="2009-09-04T16:31:24+02:00") September 4th 2009
+                            | by
+                            a(href="#") Writer - 
+                            a(href="#comments") 6 comments
+                    p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                article
+                    header
+                        h2 Article title
+                        p 
+                            | Posted on
+                            time(datetime="2009-09-04T16:31:24+02:00") September 4th 2009
+                            | by
+                            a(href="#") Writer - 
+                            a(href="#comments") 6 comments
+                    p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            aside.left-sidebar
+                h2 About section
+                p Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                .button-container
+                    button.button-default Some button text
+                    button.button-empty Some button text
         footer
             p Copyright 2009 Your name
 

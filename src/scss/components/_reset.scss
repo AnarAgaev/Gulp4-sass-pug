@@ -78,3 +78,9 @@ button {
 	border-width: 0;
 	cursor: pointer;
 }
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
