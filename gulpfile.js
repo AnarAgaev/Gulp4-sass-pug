@@ -17,7 +17,7 @@ function clean() {
 }
 
 function buildcss() {
-    return src('src/scss/**/*.scss', { sourcemaps: true })
+    return src('src/scss/*.scss', { sourcemaps: true })
         .pipe(plumber({
             errorHandler: notify.onError( function(err){
                 return {
