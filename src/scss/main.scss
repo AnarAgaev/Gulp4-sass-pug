@@ -1,10 +1,7 @@
 // INCLUDE STYLE CONPONENTS
+@import 'components/mixins';
 @import 'components/reset';
-
-//MIXINS
-@mixin animate ($duration) {
-    transition: all $duration linear;
-}
+@import 'components/buttons';
 
 header {
     p {
@@ -22,6 +19,8 @@ header {
 footer {
     p {
         padding: 20px;
+        color: white;
+        font-weight: bold;
         @media (min-width: 991px) {
             background-color: blue;
         }
