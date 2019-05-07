@@ -1,7 +1,12 @@
 extends ../templates/main
 
-block title 
-    | Templage for web site
+//- VARIABLES FOR INCLUDE THIS IN USED TEMPLATE
+block variables
+    - var title      = 'Template for web site'
+    - var thisPage   = 'page-contacts'
+    
+//- Conntecting MIXINS for this page
+include ../mixins/news
 
 block content
     h1 Title of the page
@@ -14,8 +19,8 @@ block content
                         | Posted on
                         time(datetime="2009-09-04T16:31:24+02:00") September 4th 2009
                         | by 
-                        a(href="#") Writer - 
-                        a(href="#comments") 6 comments
+                        +link('#','Writer - ')
+                        +link('#comments','6 comments')
                 p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
             article
                 header
@@ -24,12 +29,18 @@ block content
                         | Posted on
                         time(datetime="2009-09-04T16:31:24+02:00") September 4th 2009
                         | by 
-                        a(href="#") Writer - 
-                        a(href="#comments") 6 comments
+                        +link('#','Writer - ')
+                        +link('/foo', '6 comments')(class="btn")
                 p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
         aside.left-sidebar
             h2 About section
             p Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
             .button-container
-                button.button-default Some button text
-                button.button-empty Some button text
+                +button('button-default', 'Some button text')
+                +button('button-empty', 'Send')
+
+
+    +news('Single empty news')
+    +news('News with some content')
+        p lorem
+        
