@@ -1,19 +1,20 @@
 // PACKAGE CONNECTION
-const {src, dest, watch, series, parallel}  = require('gulp')
-const del                                   = require('del')
-const plumber                               = require('gulp-plumber')
-const notify                                = require('gulp-notify')
-const sass                                  = require('gulp-sass')
-const autoprefixer                          = require('gulp-autoprefixer')
-const cssbeautify                           = require('gulp-cssbeautify')
-const mmq                                   = require('gulp-merge-media-queries')
-const pug                                   = require('gulp-pug')
-const imagemin                              = require('gulp-imagemin')
-const browserSync                           = require('browser-sync').create()
+const {src, dest, watch, series, parallel}  = require('gulp');
+const del                                   = require('del');
+const plumber                               = require('gulp-plumber');
+const notify                                = require('gulp-notify');
+const sass                                  = require('gulp-sass');
+const autoprefixer                          = require('gulp-autoprefixer');
+const cssbeautify                           = require('gulp-cssbeautify');
+const mmq                                   = require('gulp-merge-media-queries');
+const pug                                   = require('gulp-pug');
+const rename                                = require('gulp-rename');
+const imagemin                              = require('gulp-imagemin');
+const browserSync                           = require('browser-sync').create();
 
 // TASK FUNCTIONS FOR GULP
 function clean() {
- return del('./build')
+ return del('./build');
 }
 
 function buildcss() {
@@ -27,12 +28,12 @@ function buildcss() {
             })
         }))
         .pipe(sass())
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
         .pipe(mmq({
             log: true,
+        }))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false,
         }))
         .pipe(cssbeautify({
             indent: '   ',
@@ -40,12 +41,12 @@ function buildcss() {
             autosemicolon: true
         }))
         .pipe(plumber.stop())
-        .pipe(dest('build/css', { sourcemaps: '../maps' }))
+        .pipe(dest('build/style', { sourcemaps: '../maps' }))
         .pipe(browserSync.stream())
 }
 
 function buildhmtl() {
-    return src('src/pug/pages/**/*.pug')
+    return src(['src/pug/pages/**/*.pug', '!src/pug/pages/**/_*.pug'])
         .pipe(plumber({
             errorHandler: notify.onError( function(err){
                 return {
@@ -57,8 +58,17 @@ function buildhmtl() {
         .pipe(pug({
             pretty: true
         }))
+        .pipe(rename({
+            dirname: '',
+        }))
         .pipe(plumber.stop())
         .pipe(dest('build'))
+        .pipe(browserSync.stream())
+}
+
+function buildfont() {
+    return src('src/font/**/*')
+        .pipe(dest('build/font'))
         .pipe(browserSync.stream())
 }
 
@@ -84,10 +94,11 @@ function server() {
 }
 
 // WATCHES
-watch('src/scss/**/*.scss', buildcss)
-watch('src/pug/**/*.pug', buildhmtl)
-watch('src/js/**/*.js', buildjs)
-watch('src/img/**/*', buildimg)
+watch('src/scss/**/*.scss', buildcss);
+watch('src/pug/**/*.pug', buildhmtl);
+watch('src/js/**/*.js', buildjs);
+watch('src/font/**/*', buildfont);
+watch('src/img/**/*', buildimg);
 
 // BUILD PROGECT
 exports.default = series(
@@ -96,7 +107,8 @@ exports.default = series(
         buildhmtl,
         buildcss,
         buildjs,
-        buildimg
+        buildimg,
+        buildfont
     ),
     server
 )

@@ -1,39 +1,5 @@
 // INCLUDE STYLE CONPONENTS
-@import 'components/mixins';
-@import 'components/reset';
-@import 'components/buttons';
-
-header {
-    p {
-        padding: 10px;
-        cursor: pointer;
-        @include animate(.3s);
-        &:hover {
-            background-color: gold;
-        }
-        @media (min-width: 991px) {
-            background-color: green;
-        }
-    }
-}
-.main-content {
-    float: left;
-    width: 600px / 960px * 100%;
-}
-.left-sidebar {
-    float: right;
-    width: 300px / 960px * 100%;
-}
-footer {
-    p {
-        padding: 20px;
-        color: white;
-        font-weight: bold;
-        @media (min-width: 991px) {
-            background-color: blue;
-        }
-    }
-}
-div {
-    display: flex;
-}
+@import 'variable';
+@import 'fonts';
+@import 'default-tempate';
+@import 'technical';
