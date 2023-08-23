@@ -1,8 +1,13 @@
 # Ignore node modules files
 /node_modules/
 
+#Ignore ides
+.vscode/
+.idea/
+
 # Ignore preproduction directory
 /build/**/*
+/dist/**/*
 
 # Ignore package-lock
 /package-lock.json
